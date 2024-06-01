@@ -2,16 +2,15 @@ import React from 'react';
 import { StyleSheet, View, Text, TextInput, FlatList, Image } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 
-// Sample data with image sources
 const categories = [
-  { id: '1', title: 'Exercise', image: require('./assets/images/exercise'), taskCount: 12 },
-  { id: '2', title: 'Study', image: require('./assets/images/study.png'), taskCount: 5 },
-  { id: '3', title: 'Code', image: require('./assets/images/code.png'), taskCount: 8 },
-  { id: '4', title: 'Cook', image: require('./assets/images/cook.png'), taskCount: 6 },
-  { id: '5', title: 'Read', image: require('./assets/images/read.png'), taskCount: 7 },
-  { id: '6', title: 'Meditate', image: require('./assets/images/meditate.png'), taskCount: 4 },
-  { id: '7', title: 'Work', image: require('./assets/images/work.png'), taskCount: 9 },
-  { id: '8', title: 'Relax', image: require('./assets/images/relax.png'), taskCount: 3 },
+  { id: '1', title: 'Exercise', image: require('./images/exercise.png'), taskCount: 12 },
+  { id: '2', title: 'Study', image: require('./images/study.png'), taskCount: 5 },
+  { id: '3', title: 'Code', image: require('./images/code.png'), taskCount: 8 },
+  { id: '4', title: 'Cook', image: require('./images/cook.png'), taskCount: 6 },
+  { id: '5', title: 'Read', image: require('./images/read.png'), taskCount: 7 },
+  { id: '6', title: 'Meditate', image: require('./images/meditation.png'), taskCount: 4 },
+  { id: '7', title: 'Work', image: require('./images/work.png'), taskCount: 9 },
+  { id: '8', title: 'Relax', image: require('./images/.png'), taskCount: 3 },
 ];
 
 const ongoingTasks = [
@@ -32,16 +31,14 @@ const ongoingTasks = [
   { id: '15', task: 'Watching a Tutorial' },
 ];
 
-// TaskCard Component
-const TaskCard = ({ title, Image, taskCount }) => (
+const TaskCard = ({ title, image, taskCount }) => (
   <View style={styles.taskCard}>
-    <Image source={Image} style={styles.taskImage} />
+    <Image source={image} style={styles.taskImage} />
     <Text style={styles.taskTitle}>{title}</Text>
     <Text style={styles.taskCount}>{taskCount} Tasks</Text>
   </View>
 );
 
-// OngoingTask Component
 const OngoingTask = ({ task }) => (
   <View style={styles.ongoingTask}>
     <Text style={styles.ongoingTaskText}>{task}</Text>
