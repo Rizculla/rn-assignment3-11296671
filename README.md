@@ -13,7 +13,7 @@ In this project, I created a task management application that includes:
 
 ## Screenshot
 
-./Screenshot.png
+![Screenshot of the application](./Screenshot.png)
 
 ## Student ID
 
@@ -23,7 +23,7 @@ My Student ID: 1296671
 
 1. Clone this repository:
     ```sh
-    git clone https://github.com/your-username/AppAssignment.git
+    git clone https://github.com/Rizculla/AppAssignment.git
     ```
 2. Navigate to the project directory:
     ```sh
