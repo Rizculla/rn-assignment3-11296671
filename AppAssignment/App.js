@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, Text, TextInput, FlatList, Image } from 'react-native';
+import { StyleSheet, View, Text, TextInput, FlatList, SectionList, Image } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 
 const categories = [
@@ -10,7 +10,7 @@ const categories = [
   { id: '5', title: 'Read', image: require('./images/read.png'), taskCount: 7 },
   { id: '6', title: 'Meditate', image: require('./images/meditation.png'), taskCount: 4 },
   { id: '7', title: 'Work', image: require('./images/work.png'), taskCount: 9 },
-  { id: '8', title: 'Relax', image: require('./images/.png'), taskCount: 3 },
+  { id: '8', title: 'Relax', image: require('./images/relax.png'), taskCount: 3 },
 ];
 
 const ongoingTasks = [
@@ -54,7 +54,7 @@ const App = () => {
           <Text style={styles.headerSubtitle}>14 tasks today</Text>
         </View>
         <Image
-          source={require('./assets/person.png')}
+          source={require('./images/person.png')}
           style={styles.avatar}
         />
       </View>
@@ -63,19 +63,21 @@ const App = () => {
           placeholder="Search"
           style={styles.searchInput}
         />
-        <View style={styles.filterButton}>
+      <View style={styles.filterButton}>
           <Feather name="sliders" size={20} color="#FFF" />
         </View>
       </View>
       <Text style={styles.sectionTitle}>Categories</Text>
-      <FlatList
-        data={categories}
-        renderItem={({ item }) => <TaskCard {...item} />}
-        keyExtractor={item => item.id}
-        numColumns={2}
-        columnWrapperStyle={styles.categoryColumn}
-        showsVerticalScrollIndicator={false}
-      />
+      <View style={styles.horizontalListContainer}></View>
+      <SectionList
+  horizontal
+  sections={[
+    { title: 'Categories', data: categories }
+  ]}
+  renderItem={({ item }) => <TaskCard {...item} />}
+  keyExtractor={item => item.id}
+  showsHorizontalScrollIndicator={false}
+/>
       <Text style={styles.sectionTitle}>Ongoing Task</Text>
     </>
   );
